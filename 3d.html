@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+ content="width=device-width,initial-scale=1.0,user-scalable=no">
+
+<title>M POPAL • REAL 3D DREAM VILLA</title>
+
+<style>
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+:root{
+ --yellow:#ffe500;
+ --gold:#ffb000;
+ --white:#f7f7f3;
+ --black:#030405;
+ --glass:#08232d;
+ --green:#39e879;
+}
+
+html,body{
+ width:100%;
+ height:100%;
+ overflow:hidden;
+ font-family:Arial,Helvetica,sans-serif;
+ background:#030506;
+ color:white;
+}
+
+body{
+ touch-action:none;
+}
+
+/* ================= TOP ================= */
+
+.top{
+ position:fixed;
+ z-index:1000;
+ top:0;
+ left:0;
+ right:0;
+ height:76px;
+
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+
+ padding:0 18px;
+
+ background:rgba(3,5,7,.78);
+ backdrop-filter:blur(20px);
+
+ border-bottom:2px solid var(--yellow);
+
+ box-shadow:
+ 0 0 30px rgba(255,229,0,.16);
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:11px;
+}
+
+.brandIcon{
+ width:46px;
+ height:46px;
+ display:grid;
+ place-items:center;
+
+ background:var(--yellow);
+ color:#000;
+
+ font-weight:900;
+ font-size:20px;
+
+ border:2px solid white;
+
+ clip-path:
+ polygon(
+ 50% 0,
+ 100% 25%,
+ 100% 100%,
+ 0 100%,
+ 0 25%
+ );
+
+ box-shadow:
+ 0 0 20px rgba(255,229,0,.5);
+}
+
+.brand b{
+ display:block;
+ font-size:14px;
+ letter-spacing:2px;
+}
+
+.brand small{
+ display:block;
+ color:var(--yellow);
+ font-size:8px;
+ letter-spacing:3px;
+ margin-top:3px;
+}
+
+.back{
+ padding:12px 17px;
+ border-radius:13px;
+
+ background:#080a0c;
+ border:1px solid #4b555d;
+
+ color:white;
+ cursor:pointer;
+}
+
+.back:hover{
+ color:var(--yellow);
+ border-color:var(--yellow);
+}
+
+/* ================= WORLD ================= */
+
+.scene{
+ position:absolute;
+ top:76px;
+ left:0;
+ right:0;
+ bottom:0;
+
+ overflow:hidden;
+
+ perspective:1800px;
+}
+
+/* SKY */
+
+.sky{
+ position:absolute;
+ inset:0;
+
+ background:
+ linear-gradient(
+ 180deg,
+ #315d83 0%,
+ #83badb 35%,
+ #e8d8bd 72%,
+ #8b806e 100%
+ );
+}
+
+/* SUN */
+
+.sun{
+ position:absolute;
+
+ width:170px;
+ height:170px;
+
+ right:10%;
+ top:10%;
+
+ border-radius:50%;
+
+ background:#fff4b0;
+
+ box-shadow:
+ 0 0 60px #fff2a0,
+ 0 0 150px rgba(255,220,80,.35);
+
+ opacity:.8;
+}
+
+/* CLOUDS */
+
+.cloud{
+ position:absolute;
+
+ width:230px;
+ height:70px;
+
+ border-radius:100px;
+
+ background:rgba(255,255,255,.32);
+
+ filter:blur(9px);
+}
+
+.cloud:before,
+.cloud:after{
+ content:"";
+ position:absolute;
+
+ border-radius:50%;
+
+ background:rgba(255,255,255,.35);
+}
+
+.cloud:before{
+ width:90px;
+ height:90px;
+ left:45px;
+ top:-40px;
+}
+
+.cloud:after{
+ width:110px;
+ height:110px;
+ right:35px;
+ top:-50px;
+}
+
+.cloud.one{
+ top:15%;
+ left:5%;
+}
+
+.cloud.two{
+ top:25%;
+ right:4%;
+ transform:scale(.75);
+}
+
+/* DISTANT HILLS */
+
+.hills{
+ position:absolute;
+ left:0;
+ right:0;
+ bottom:35%;
+
+ height:180px;
+
+ background:
+ linear-gradient(
+ 145deg,
+ transparent 35%,
+ #31543b 36% 48%,
+ transparent 49%
+ ),
+ linear-gradient(
+ 35deg,
+ transparent 30%,
+ #274b35 31% 55%,
+ transparent 56%
+ );
+
+ opacity:.8;
+}
+
+/* ================= GROUND ================= */
+
+.ground{
+ position:absolute;
+ left:-10%;
+ right:-10%;
+ bottom:-25%;
+
+ height:70%;
+
+ background:
+ radial-gradient(
+ ellipse at center,
+ rgba(70,150,75,.7),
+ rgba(20,55,28,.95) 55%,
+ #111713 100%
+ );
+
+ transform:
+ perspective(700px)
+ rotateX(62deg);
+
+ transform-origin:center bottom;
+
+ border-top:
+ 2px solid rgba(255,229,0,.35);
+}
+
+/* ROAD */
+
+.road{
+ position:absolute;
+
+ width:900px;
+ height:420px;
+
+ left:50%;
+ bottom:-180px;
+
+ transform:
+ translateX(-50%)
+ perspective(600px)
+ rotateX(62deg);
+
+ background:
+ linear-gradient(
+ 90deg,
+ #25292b,
+ #6e7372 48%,
+ #25292b
+ );
+
+ border:
+ 2px solid #a7aaa7;
+
+ box-shadow:
+ 0 0 40px rgba(0,0,0,.45);
+}
+
+.road:after{
+ content:"";
+
+ position:absolute;
+
+ left:48%;
+ top:0;
+
+ width:8px;
+ height:100%;
+
+ background:
+ repeating-linear-gradient(
+ 180deg,
+ #eee 0 55px,
+ transparent 55px 105px
+ );
+
+ opacity:.45;
+}
+
+/* POOL */
+
+.pool{
+ position:absolute;
+
+ width:450px;
+ height:230px;
+
+ left:5%;
+ bottom:18%;
+
+ transform:
+ perspective(500px)
+ rotateX(52deg)
+ rotateZ(-5deg);
+
+ background:
+ linear-gradient(
+ 145deg,
+ #52f1ef,
+ #079db7 50%,
+ #034d72
+ );
+
+ border:
+ 8px solid #eceee9;
+
+ box-shadow:
+ inset 0 0 35px rgba(0,0,0,.3),
+ 0 15px 30px rgba(0,0,0,.35);
+}
+
+.pool:before,
+.pool:after{
+ content:"";
+
+ position:absolute;
+
+ left:35px;
+ right:35px;
+
+ height:3px;
+
+ background:rgba(255,255,255,.5);
+}
+
+.pool:before{top:65px}
+.pool:after{top:130px}
+
+/* ================= HOUSE WORLD ================= */
+
+.houseWorld{
+ position:absolute;
+
+ left:50%;
+ top:50%;
+
+ width:650px;
+ height:600px;
+
+ transform:
+ translate(-50%,-50%)
+ rotateX(-8deg)
+ rotateY(-28deg);
+
+ transform-style:preserve-3d;
+
+ transition:
+ transform .08s linear;
+}
+
+/* ================= HOUSE ================= */
+
+.house{
+ position:absolute;
+
+ width:460px;
+ height:390px;
+
+ left:95px;
+ top:70px;
+
+ transform-style:preserve-3d;
+}
+
+/* HOUSE FLOOR BODY */
+
+.body{
+ position:absolute;
+
+ left:0;
+ top:0;
+
+ width:460px;
+ height:350px;
+
+ transform-style:preserve-3d;
+}
+
+/* FRONT */
+
+.front{
+ position:absolute;
+
+ width:460px;
+ height:350px;
+
+ transform:
+ translateZ(125px);
+
+ background:
+ linear-gradient(
+ 145deg,
+ #fff,
+ #eeeeea 55%,
+ #b8bcba
+ );
+
+ border:
+ 5px solid #15191b;
+
+ box-shadow:
+ inset -35px 0 45px rgba(0,0,0,.12),
+ 0 0 0 2px rgba(255,229,0,.25);
+}
+
+/* BACK */
+
+.back{
+ position:absolute;
+
+ width:460px;
+ height:350px;
+
+ transform:
+ rotateY(180deg)
+ translateZ(125px);
+
+ background:
+ linear-gradient(
+ 145deg,
+ #eeeeea,
+ #c4c7c5
+ );
+
+ border:
+ 5px solid #15191b;
+}
+
+/* LEFT */
+
+.left{
+ position:absolute;
+
+ width:250px;
+ height:350px;
+
+ left:-125px;
+
+ transform:
+ rotateY(-90deg);
+
+ background:
+ linear-gradient(
+ 145deg,
+ #f5f5f0,
+ #bfc2c0
+ );
+
+ border:
+ 5px solid #171a1c;
+}
+
+/* RIGHT */
+
+.right{
+ position:absolute;
+
+ width:250px;
+ height:350px;
+
+ right:-125px;
+
+ transform:
+ rotateY(90deg);
+
+ background:
+ linear-gradient(
+ 145deg,
+ #f5f5f0,
+ #bfc2c0
+ );
+
+ border:
+ 5px solid #171a1c;
+}
+
+/* ================= FLOOR DIVISIONS ================= */
+
+.floorEdge{
+ position:absolute;
+
+ left:0;
+ right:0;
+
+ height:6px;
+
+ background:var(--yellow);
+
+ box-shadow:
+ 0 0 16px var(--yellow);
+}
+
+.edge1{top:110px}
+.edge2{top:225px}
+
+/* ================= WINDOWS ================= */
+
+.window{
+ position:absolute;
+
+ background:
+ linear-gradient(
+ 90deg,
+ transparent 46%,
+ rgba(255,255,255,.75) 49%,
+ transparent 52%
+ ),
+ linear-gradient(
+ 0deg,
+ transparent 46%,
+ rgba(255,255,255,.75) 49%,
+ transparent 52%
+ ),
+ linear-gradient(
+ 145deg,
+ #061219,
+ #277d91 48%,
+ #071117
+ );
+
+ border:
+ 6px solid #171d20;
+
+ box-shadow:
+ inset 0 0 20px rgba(0,234,255,.25);
+}
+
+.w1{
+ left:30px;
+ top:25px;
+ width:95px;
+ height:68px;
+}
+
+.w2{
+ left:182px;
+ top:25px;
+ width:95px;
+ height:68px;
+}
+
+.w3{
+ right:30px;
+ top:25px;
+ width:95px;
+ height:68px;
+}
+
+.w4{
+ left:30px;
+ top:140px;
+ width:125px;
+ height:90px;
+}
+
+.w5{
+ right:30px;
+ top:140px;
+ width:125px;
+ height:90px;
+}
+
+/* ================= DOOR ================= */
+
+.door{
+ position:absolute;
+
+ width:75px;
+ height:120px;
+
+ left:192px;
+ bottom:0;
+
+ background:
+ linear-gradient(
+ 90deg,
+ #17100a,
+ #65401e,
+ #1b1008
+ );
+
+ border:
+ 6px solid #0d0e0f;
+}
+
+.door:after{
+ content:"";
+
+ position:absolute;
+
+ width:8px;
+ height:8px;
+
+ right:9px;
+ top:55%;
+
+ border-radius:50%;
+
+ background:var(--yellow);
+
+ box-shadow:
+ 0 0 15px var(--yellow);
+}
+
+/* ================= BALCONY ================= */
+
+.balcony{
+ position:absolute;
+
+ left:105px;
+ top:104px;
+
+ width:250px;
+ height:24px;
+
+ background:#111518;
+
+ border:
+ 2px solid var(--yellow);
+
+ box-shadow:
+ 0 0 20px rgba(255,229,0,.2);
+}
+
+.balconyRail{
+ position:absolute;
+
+ left:105px;
+ top:62px;
+
+ width:250px;
+ height:45px;
+
+ border:
+ 4px solid #171b1d;
+
+ border-bottom:0;
+}
+
+/* ================= COLUMNS ================= */
+
+.column{
+ position:absolute;
+
+ top:0;
+ bottom:0;
+
+ width:22px;
+
+ background:
+ linear-gradient(
+ 90deg,
+ #a9aca9,
+ #fff,
+ #c0c2bf
+ );
+
+ border:
+ 2px solid #5e6261;
+}
+
+.col1{left:8px}
+.col2{right:8px}
+
+/* ================= ROOF ================= */
+
+.roof{
+ position:absolute;
+
+ left:0;
+ top:-95px;
+
+ width:460px;
+ height:250px;
+
+ background:
+ linear-gradient(
+ 145deg,
+ #20262a,
+ #080a0c
+ );
+
+ transform:
+ rotateX(90deg);
+
+ transform-origin:
+ center bottom;
+
+ clip-path:
+ polygon(
+ 50% 0,
+ 100% 100%,
+ 0 100%
+ );
+
+ border:
+ 5px solid #080a0b;
+
+ box-shadow:
+ 0 0 30px rgba(0,0,0,.7);
+}
+
+/* ROOF YELLOW EDGE */
+
+.roofEdge{
+ position:absolute;
+
+ left:5px;
+ top:42px;
+
+ width:450px;
+
+ height:5px;
+
+ background:var(--yellow);
+
+ box-shadow:
+ 0 0 18px var(--yellow);
+}
+
+/* ================= SIDE WINDOWS ================= */
+
+.sideWindow{
+ position:absolute;
+
+ width:110px;
+ height:82px;
+
+ background:
+ linear-gradient(
+ 145deg,
+ #06151b,
+ #258295,
+ #061116
+ );
+
+ border:
+ 5px solid #171c20;
+}
+
+.left .sideWindow{
+ left:55px;
+ top:40px;
+}
+
+.left .sideWindow.two{
+ top:170px;
+}
+
+.right .sideWindow{
+ left:80px;
+ top:40px;
+}
+
+.right .sideWindow.two{
+ top:170px;
+}
+
+/* ================= GARDEN ================= */
+
+.gardenObject{
+ position:absolute;
+
+ transform-style:preserve-3d;
+}
+
+.tree{
+ width:100px;
+ height:150px;
+}
+
+.tree .trunk{
+ position:absolute;
+
+ width:14px;
+ height:75px;
+
+ left:43px;
+ bottom:0;
+
+ background:#5a3b22;
+}
+
+.tree .top{
+ position:absolute;
+
+ width:100px;
+ height:100px;
+
+ left:0;
+ bottom:45px;
+
+ border-radius:50%;
+
+ background:
+ radial-gradient(
+  circle at 30% 30%,
+  #62d76f,
+  #1b7434 55%,
+  #092c18
+ );
+
+ box-shadow:
+ 0 0 20px rgba(49,255,145,.15);
+}
+
+.treeA{
+ left:-100px;
+ bottom:18%;
+ transform:scale(.9);
+}
+
+.treeB{
+ right:-100px;
+ bottom:17%;
+ transform:scale(1.25);
+}
+
+.treeC{
+ left:16%;
+ bottom:12%;
+ transform:scale(.55);
+}
+
+/* ================= FLOWERS ================= */
+
+.flower{
+ position:absolute;
+
+ width:14px;
+ height:14px;
+
+ border-radius:50%;
+
+ background:var(--yellow);
+
+ box-shadow:
+ 0 0 10px var(--yellow);
+}
+
+.f1{left:30%;bottom:22%}
+.f2{left:33%;bottom:20%}
+.f3{right:31%;bottom:22%}
+.f4{right:28%;bottom:20%}
+
+/* ================= HOUSE LIGHTS ================= */
+
+.houseLight{
+ position:absolute;
+
+ width:15px;
+ height:15px;
+
+ border-radius:50%;
+
+ background:var(--yellow);
+
+ box-shadow:
+ 0 0 25px 6px rgba(255,229,0,.65);
+}
+
+.hl1{
+ left:20px;
+ top:120px;
+}
+
+.hl2{
+ right:20px;
+ top:120px;
+}
+
+.hl3{
+ left:50%;
+ top:240px;
+}
+
+/* ================= CONTROLS ================= */
+
+.controls{
+ position:fixed;
+
+ z-index:1200;
+
+ left:50%;
+ bottom:22px;
+
+ transform:
+ translateX(-50%);
+
+ display:flex;
+
+ gap:8px;
+
+ padding:10px;
+
+ border:
+ 1px solid rgba(255,255,255,.15);
+
+ border-radius:18px;
+
+ background:
+ rgba(4,6,8,.82);
+
+ backdrop-filter:blur(18px);
+}
+
+.controls button{
+ width:50px;
+ height:50px;
+
+ border-radius:14px;
+
+ background:#101519;
+
+ color:white;
+
+ border:
+ 1px solid #3d474e;
+
+ cursor:pointer;
+
+ font-size:18px;
+}
+
+.controls button:hover{
+ color:var(--yellow);
+ border-color:var(--yellow);
+
+ box-shadow:
+ 0 0 18px rgba(255,229,0,.25);
+}
+
+/* ================= INFO ================= */
+
+.info{
+ position:fixed;
+
+ z-index:1200;
+
+ left:20px;
+ bottom:25px;
+
+ width:270px;
+
+ padding:17px;
+
+ background:
+ rgba(4,6,8,.7);
+
+ backdrop-filter:blur(15px);
+
+ border-left:
+ 3px solid var(--yellow);
+}
+
+.info b{
+ display:block;
+ font-size:13px;
+}
+
+.info span{
+ display:block;
+ margin-top:6px;
+ color:#7f8a92;
+ font-size:9px;
+ line-height:1.6;
+}
+
+/* ================= TITLE ================= */
+
+.title{
+ position:fixed;
+
+ z-index:1200;
+
+ left:50%;
+ top:100px;
+
+ transform:
+ translateX(-50%);
+
+ text-align:center;
+
+ pointer-events:none;
+}
+
+.title h1{
+ font-size:
+ clamp(25px,4vw,50px);
+
+ letter-spacing:5px;
+}
+
+.title h1 span{
+ color:var(--yellow);
+
+ text-shadow:
+ 0 0 20px rgba(255,229,0,.45);
+}
+
+.title small{
+ display:block;
+
+ margin-top:8px;
+
+ color:#7f8a92;
+
+ font-size:9px;
+
+ letter-spacing:4px;
+}
+
+.hint{
+ position:fixed;
+
+ z-index:1200;
+
+ right:20px;
+ bottom:25px;
+
+ padding:13px 16px;
+
+ border-radius:13px;
+
+ background:
+ rgba(4,6,8,.7);
+
+ border:
+ 1px solid #313b42;
+
+ color:#818c94;
+
+ font-size:9px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px){
+
+ .houseWorld{
+  transform:
+  translate(-50%,-48%)
+  scale(.65)
+  rotateX(-8deg)
+  rotateY(-28deg);
+ }
+
+ .info{
+  display:none;
+ }
+
+ .hint{
+  right:50%;
+  bottom:92px;
+  transform:translateX(50%);
+  white-space:nowrap;
+ }
+
+ .title{
+  top:95px;
+ }
+
+ .title h1{
+  font-size:22px;
+ }
+
+ .controls button{
+  width:43px;
+  height:43px;
+ }
+
+ .controls{
+  bottom:17px;
+ }
+
+ .pool{
+  transform:
+  scale(.65)
+  perspective(500px)
+  rotateX(52deg);
+ }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- TOP -->
+
+<header class="top">
+
+ <div class="brand">
+
+  <div class="brandIcon">M</div>
+
+  <div>
+   <b>M POPAL</b>
+   <small>REAL 3D DREAM VILLA</small>
+  </div>
+
+ </div>
+
+ <button class="back"
+  onclick="location.href='index.html'">
+  ← BACK
+ </button>
+
+</header>
+
+
+<!-- WORLD -->
+
+<div class="scene">
+
+ <div class="sky"></div>
+
+ <div class="sun"></div>
+
+ <div class="cloud one"></div>
+ <div class="cloud two"></div>
+
+ <div class="hills"></div>
+
+ <div class="ground"></div>
+
+ <div class="road"></div>
+
+ <div class="pool"></div>
+
+
+ <!-- HOUSE WORLD -->
+
+ <div class="houseWorld" id="world">
+
+  <div class="house">
+
+   <div class="body">
+
+    <!-- FRONT -->
+
+    <div class="front">
+
+     <div class="floorEdge edge1"></div>
+     <div class="floorEdge edge2"></div>
+
+     <div class="column col1"></div>
+     <div class="column col2"></div>
+
+     <div class="window w1"></div>
+     <div class="window w2"></div>
+     <div class="window w3"></div>
+
+     <div class="window w4"></div>
+     <div class="window w5"></div>
+
+     <div class="balcony"></div>
+     <div class="balconyRail"></div>
+
+     <div class="door"></div>
+
+     <div class="houseLight hl1"></div>
+     <div class="houseLight hl2"></div>
+     <div class="houseLight hl3"></div>
+
+    </div>
+
+
+    <!-- BACK -->
+
+    <div class="back">
+
+     <div class="floorEdge edge1"></div>
+     <div class="floorEdge edge2"></div>
+
+     <div class="window w1"></div>
+     <div class="window w2"></div>
+     <div class="window w3"></div>
+
+     <div class="window w4"></div>
+     <div class="window w5"></div>
+
+     <div class="balcony"></div>
+     <div class="balconyRail"></div>
+
+    </div>
+
+
+    <!-- LEFT -->
+
+    <div class="left">
+
+     <div class="sideWindow"></div>
+     <div class="sideWindow two"></div>
+
+    </div>
+
+
+    <!-- RIGHT -->
+
+    <div class="right">
+
+     <div class="sideWindow"></div>
+     <div class="sideWindow two"></div>
+
+    </div>
+
+
+    <!-- ROOF -->
+
+    <div class="roof">
+     <div class="roofEdge"></div>
+    </div>
+
+   </div>
+
+  </div>
+
+
+  <!-- TREES -->
+
+  <div class="gardenObject tree treeA">
+   <div class="trunk"></div>
+   <div class="top"></div>
+  </div>
+
+  <div class="gardenObject tree treeB">
+   <div class="trunk"></div>
+   <div class="top"></div>
+  </div>
+
+  <div class="gardenObject tree treeC">
+   <div class="trunk"></div>
+   <div class="top"></div>
+  </div>
+
+
+  <!-- FLOWERS -->
+
+  <div class="flower f1"></div>
+  <div class="flower f2"></div>
+  <div class="flower f3"></div>
+  <div class="flower f4"></div>
+
+ </div>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div class="title">
+
+ <h1>
+  THE <span>DREAM VILLA</span>
+ </h1>
+
+ <small>
+  INTERACTIVE ARCHITECTURAL 3D • 360°
+ </small>
+
+</div>
+
+
+<!-- INFO -->
+
+<div class="info">
+
+ <b>
+  THREE-LEVEL LUXURY RESIDENCE
+ </b>
+
+ <span>
+  PANORAMIC GLASS • PRIVATE POOL •
+  GRAND GARDEN • DRIVEWAY • ROOF
+ </span>
+
+</div>
+
+
+<!-- HINT -->
+
+<div class="hint">
+ DRAG / TOUCH • ROTATE THE VILLA
+</div>
+
+
+<!-- CONTROLS -->
+
+<div class="controls">
+
+ <button onclick="left()">◀</button>
+
+ <button onclick="right()">▶</button>
+
+ <button onclick="up()">▲</button>
+
+ <button onclick="down()">▼</button>
+
+ <button onclick="zoomIn()">＋</button>
+
+ <button onclick="zoomOut()">−</button>
+
+ <button onclick="reset()">↻</button>
+
+</div>
+
+
+<script>
+
+const world=document.getElementById("world");
+
+let rx=-8;
+let ry=-28;
+let scale=1;
+
+let dragging=false;
+
+let lastX=0;
+let lastY=0;
+
+
+/* ================= RENDER ================= */
+
+function render(){
+
+ world.style.transform=
+ `
+ translate(-50%,-50%)
+ rotateX(${rx}deg)
+ rotateY(${ry}deg)
+ scale(${scale})
+ `;
+
+}
+
+
+/* ================= BUTTONS ================= */
+
+function left(){
+
+ ry-=12;
+
+ render();
+
+}
+
+function right(){
+
+ ry+=12;
+
+ render();
+
+}
+
+function up(){
+
+ rx-=8;
+
+ rx=Math.max(-55,rx);
+
+ render();
+
+}
+
+function down(){
+
+ rx+=8;
+
+ rx=Math.min(55,rx);
+
+ render();
+
+}
+
+function zoomIn(){
+
+ scale+=.08;
+
+ scale=Math.min(1.45,scale);
+
+ render();
+
+}
+
+function zoomOut(){
+
+ scale-=.08;
+
+ scale=Math.max(.58,scale);
+
+ render();
+
+}
+
+function reset(){
+
+ rx=-8;
+ ry=-28;
+ scale=1;
+
+ render();
+
+}
+
+
+/* ================= MOUSE / TOUCH ================= */
+
+document.addEventListener(
+ "pointerdown",
+ function(e){
+
+  if(
+   e.target.closest(".controls") ||
+   e.target.closest(".top")
+  ){
+   return;
+  }
+
+  dragging=true;
+
+  lastX=e.clientX;
+  lastY=e.clientY;
+
+ }
+);
+
+
+document.addEventListener(
+ "pointermove",
+ function(e){
+
+  if(!dragging)return;
+
+  const dx=e.clientX-lastX;
+  const dy=e.clientY-lastY;
+
+  ry+=dx*.42;
+  rx-=dy*.25;
+
+  rx=Math.max(-60,Math.min(60,rx));
+
+  lastX=e.clientX;
+  lastY=e.clientY;
+
+  render();
+
+ }
+);
+
+
+document.addEventListener(
+ "pointerup",
+ function(){
+
+  dragging=false;
+
+ }
+);
+
+
+document.addEventListener(
+ "pointercancel",
+ function(){
+
+  dragging=false;
+
+ }
+);
+
+
+/* ================= KEYBOARD ================= */
+
+window.addEventListener(
+ "keydown",
+ function(e){
+
+  if(e.key==="ArrowLeft"){
+   left();
+  }
+
+  if(e.key==="ArrowRight"){
+   right();
+  }
+
+  if(e.key==="ArrowUp"){
+   up();
+  }
+
+  if(e.key==="ArrowDown"){
+   down();
+  }
+
+  if(e.key==="+"){
+   zoomIn();
+  }
+
+  if(e.key==="-"){
+   zoomOut();
+  }
+
+  if(e.key==="0"){
+   reset();
+  }
+
+ }
+);
+
+
+/* ================= AUTO SMALL LIGHT MOVEMENT ================= */
+
+let t=0;
+
+function animate(){
+
+ t+=.02;
+
+ const lights=
+ document.querySelectorAll(".houseLight");
+
+ lights.forEach(
+  (l,i)=>{
+
+   const opacity=
+    .65+
+    Math.sin(t*2+i)*.25;
+
+   l.style.opacity=opacity;
+
+  }
+ );
+
+ requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
