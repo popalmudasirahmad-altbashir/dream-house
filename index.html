@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>M POPAL DREAM HOUSE</title>
+
+<style>
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+:root{
+ --yellow:#ffe500;
+ --yellow2:#fff500;
+ --gold:#ffb800;
+ --white:#fafaf7;
+ --black:#030405;
+ --dark:#080b0e;
+ --panel:#0d1217;
+ --gray:#9ba5ac;
+ --glass:#071b24;
+ --cyan:#00eaff;
+ --green:#31ff91;
+ --blue:#238bff;
+ --purple:#8e45ff;
+ --pink:#ff2d9d;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ background:
+ radial-gradient(circle at 15% 10%,rgba(255,229,0,.08),transparent 25%),
+ radial-gradient(circle at 90% 30%,rgba(0,234,255,.07),transparent 28%),
+ linear-gradient(180deg,#030506,#070a0d 50%,#030405);
+ color:white;
+ font-family:Arial,Helvetica,sans-serif;
+ overflow-x:hidden;
+}
+
+button{
+ font-family:inherit;
+}
+
+a{
+ color:inherit;
+ text-decoration:none;
+}
+
+/* ================= TOP ================= */
+
+.topbar{
+ position:fixed;
+ top:0;
+ left:0;
+ right:0;
+ height:82px;
+ z-index:1000;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 24px;
+ background:rgba(3,5,7,.82);
+ backdrop-filter:blur(22px);
+ border-bottom:2px solid var(--yellow);
+ box-shadow:
+ 0 0 30px rgba(255,229,0,.15),
+ 0 4px 35px rgba(0,0,0,.55);
+}
+
+.logo{
+ display:flex;
+ align-items:center;
+ gap:12px;
+}
+
+.logoMark{
+ width:49px;
+ height:49px;
+ display:grid;
+ place-items:center;
+ color:#030303;
+ background:linear-gradient(145deg,#fff,var(--yellow),#d89b00);
+ font-size:22px;
+ font-weight:900;
+ border:2px solid #fff;
+ clip-path:polygon(50% 0,100% 25%,100% 100%,0 100%,0 25%);
+ box-shadow:
+ 0 0 15px var(--yellow),
+ 0 0 35px rgba(255,229,0,.35);
+}
+
+.logoText{
+ font-size:16px;
+ font-weight:900;
+ letter-spacing:2px;
+}
+
+.logoText small{
+ display:block;
+ color:var(--yellow);
+ font-size:8px;
+ letter-spacing:4px;
+ margin-top:4px;
+}
+
+.topButtons{
+ display:flex;
+ gap:10px;
+}
+
+.topButton{
+ width:52px;
+ height:52px;
+ border-radius:15px;
+ border:1px solid #3a4249;
+ background:linear-gradient(145deg,#161c21,#050607);
+ color:white;
+ font-size:23px;
+ cursor:pointer;
+ transition:.25s;
+}
+
+.topButton:hover{
+ transform:translateY(-3px);
+ border-color:var(--yellow);
+ color:var(--yellow);
+ box-shadow:0 0 22px rgba(255,229,0,.25);
+}
+
+/* ================= MENU ================= */
+
+.menu{
+ position:fixed;
+ z-index:999;
+ top:82px;
+ right:-390px;
+ width:370px;
+ height:calc(100vh - 82px);
+ padding:25px;
+ overflow:auto;
+ background:rgba(5,8,11,.97);
+ backdrop-filter:blur(25px);
+ border-left:2px solid var(--yellow);
+ box-shadow:-15px 0 50px rgba(0,0,0,.65);
+ transition:.45s;
+}
+
+.menu.open{
+ right:0;
+}
+
+.menu h2{
+ font-size:25px;
+ margin-bottom:5px;
+}
+
+.menu p{
+ color:#75818a;
+ font-size:10px;
+ letter-spacing:2px;
+ margin-bottom:25px;
+}
+
+.menuGrid{
+ display:grid;
+ gap:12px;
+}
+
+.menuItem{
+ width:100%;
+ min-height:72px;
+ padding:12px;
+ display:flex;
+ align-items:center;
+ gap:15px;
+ text-align:left;
+ border-radius:18px;
+ border:1px solid #293139;
+ background:linear-gradient(145deg,#141a20,#07090b);
+ color:white;
+ cursor:pointer;
+ transition:.25s;
+}
+
+.menuItem:hover{
+ transform:translateX(-5px);
+ border-color:var(--yellow);
+ box-shadow:0 0 25px rgba(255,229,0,.15);
+}
+
+.menuIcon{
+ width:50px;
+ height:50px;
+ flex-shrink:0;
+ display:grid;
+ place-items:center;
+ border-radius:14px;
+ border:1px solid var(--yellow);
+ background:#050607;
+ color:var(--yellow);
+ font-size:23px;
+}
+
+.menuItem b{
+ display:block;
+ font-size:14px;
+}
+
+.menuItem span{
+ display:block;
+ color:#737f88;
+ font-size:10px;
+ margin-top:5px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+ min-height:100vh;
+ padding:140px 5% 60px;
+ display:grid;
+ grid-template-columns:.8fr 1.2fr;
+ gap:35px;
+ align-items:center;
+ position:relative;
+}
+
+.heroText{
+ padding-left:3%;
+}
+
+.kicker{
+ color:var(--yellow);
+ font-size:10px;
+ font-weight:bold;
+ letter-spacing:5px;
+ margin-bottom:15px;
+}
+
+.heroText h1{
+ font-size:clamp(48px,7vw,92px);
+ line-height:.86;
+ letter-spacing:-5px;
+}
+
+.heroText h1 span{
+ color:var(--yellow);
+ text-shadow:
+ 0 0 15px rgba(255,229,0,.4),
+ 0 0 45px rgba(255,229,0,.15);
+}
+
+.heroText p{
+ max-width:600px;
+ color:#9ca7ae;
+ line-height:1.8;
+ margin:25px 0;
+}
+
+.heroTags{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+}
+
+.tag{
+ padding:8px 12px;
+ border-radius:100px;
+ border:1px solid #303941;
+ background:#0d1217;
+ color:#c8cdd1;
+ font-size:9px;
+ letter-spacing:1px;
+}
+
+.heroButtons{
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+ margin-top:28px;
+}
+
+.btn{
+ border:0;
+ padding:16px 22px;
+ border-radius:14px;
+ background:var(--yellow);
+ color:#050505;
+ font-weight:900;
+ cursor:pointer;
+ box-shadow:0 0 25px rgba(255,229,0,.25);
+ transition:.25s;
+}
+
+.btn:hover{
+ transform:translateY(-4px);
+ box-shadow:0 0 38px rgba(255,229,0,.5);
+}
+
+.btn.dark{
+ background:#090c0f;
+ color:white;
+ border:1px solid #56616a;
+ box-shadow:none;
+}
+
+/* ================= ARCHITECTURE SVG ================= */
+
+.houseStage{
+ width:100%;
+ min-height:610px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative;
+}
+
+.houseGlow{
+ position:absolute;
+ width:80%;
+ height:70%;
+ background:
+ radial-gradient(circle,
+ rgba(255,229,0,.15),
+ rgba(0,234,255,.05) 35%,
+ transparent 68%);
+ filter:blur(25px);
+}
+
+.architecture{
+ width:min(900px,100%);
+ position:relative;
+ z-index:2;
+ filter:
+ drop-shadow(0 25px 30px rgba(0,0,0,.7))
+ drop-shadow(0 0 25px rgba(255,229,0,.08));
+}
+
+.architecture svg{
+ width:100%;
+ height:auto;
+ display:block;
+}
+
+/* ================= SECTIONS ================= */
+
+.section{
+ padding:105px 6%;
+}
+
+.sectionTitle{
+ max-width:800px;
+ margin-bottom:40px;
+}
+
+.sectionTitle .kicker{
+ margin-bottom:10px;
+}
+
+.sectionTitle h2{
+ font-size:clamp(36px,5vw,65px);
+ line-height:.95;
+}
+
+.sectionTitle p{
+ color:#8d989f;
+ max-width:700px;
+ line-height:1.8;
+ margin-top:15px;
+}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ gap:14px;
+}
+
+.stat{
+ min-height:135px;
+ padding:25px;
+ border-radius:20px;
+ background:
+ linear-gradient(145deg,rgba(255,255,255,.04),transparent),
+ #090d11;
+ border:1px solid #29323a;
+ position:relative;
+ overflow:hidden;
+}
+
+.stat:after{
+ content:"";
+ position:absolute;
+ width:100px;
+ height:100px;
+ right:-50px;
+ top:-50px;
+ border-radius:50%;
+ background:var(--yellow);
+ filter:blur(45px);
+ opacity:.12;
+}
+
+.stat strong{
+ display:block;
+ color:var(--yellow);
+ font-size:30px;
+}
+
+.stat span{
+ display:block;
+ color:#7c8790;
+ font-size:10px;
+ margin-top:8px;
+ letter-spacing:1px;
+}
+
+/* ================= FEATURES ================= */
+
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.feature{
+ min-height:230px;
+ padding:28px;
+ border-radius:25px;
+ border:1px solid #28323a;
+ background:
+ linear-gradient(145deg,rgba(255,255,255,.035),transparent),
+ #090d11;
+ position:relative;
+ overflow:hidden;
+ transition:.3s;
+}
+
+.feature:hover{
+ transform:translateY(-7px);
+ border-color:var(--yellow);
+ box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+.featureIcon{
+ font-size:35px;
+ margin-bottom:20px;
+}
+
+.feature h3{
+ font-size:19px;
+ margin-bottom:12px;
+}
+
+.feature p{
+ color:#7f8a92;
+ line-height:1.7;
+ font-size:13px;
+}
+
+/* ================= REAL HOUSE VIEWS ================= */
+
+.views{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.viewCard{
+ min-height:390px;
+ position:relative;
+ overflow:hidden;
+ border-radius:25px;
+ border:1px solid #343d45;
+ background:#060809;
+}
+
+.viewCard svg{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.viewOverlay{
+ position:absolute;
+ z-index:4;
+ left:0;
+ right:0;
+ bottom:0;
+ padding:25px 20px;
+ background:linear-gradient(transparent,rgba(0,0,0,.92));
+}
+
+.viewOverlay h3{
+ font-size:22px;
+}
+
+.viewOverlay span{
+ display:block;
+ color:var(--yellow);
+ font-size:9px;
+ letter-spacing:3px;
+ margin-top:5px;
+}
+
+/* ================= 3D CTA ================= */
+
+.threeDSection{
+ margin:20px 6% 100px;
+ min-height:400px;
+ padding:60px;
+ border-radius:35px;
+ border:2px solid var(--yellow);
+ background:
+ radial-gradient(circle at 85% 20%,rgba(255,229,0,.15),transparent 30%),
+ radial-gradient(circle at 20% 80%,rgba(0,234,255,.08),transparent 35%),
+ linear-gradient(145deg,#121820,#050607);
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:40px;
+ overflow:hidden;
+ position:relative;
+}
+
+.threeDSection:before{
+ content:"360°";
+ position:absolute;
+ right:-30px;
+ bottom:-80px;
+ font-size:240px;
+ font-weight:900;
+ color:rgba(255,255,255,.025);
+}
+
+.threeDText{
+ max-width:650px;
+ position:relative;
+ z-index:2;
+}
+
+.threeDText h2{
+ font-size:clamp(40px,6vw,72px);
+ line-height:.9;
+}
+
+.threeDText p{
+ color:#87929a;
+ line-height:1.8;
+ margin:18px 0 25px;
+}
+
+.threeDButton{
+ padding:20px 30px;
+ border-radius:17px;
+ border:2px solid var(--yellow);
+ background:
+ linear-gradient(135deg,#fff500,#ffb300 45%,#ff6500);
+ color:#050505;
+ font-size:15px;
+ font-weight:900;
+ cursor:pointer;
+ box-shadow:
+ 0 0 20px rgba(255,229,0,.45),
+ 0 0 70px rgba(255,160,0,.15);
+ transition:.3s;
+}
+
+.threeDButton:hover{
+ transform:scale(1.04);
+ box-shadow:
+ 0 0 35px rgba(255,229,0,.7),
+ 0 0 90px rgba(255,160,0,.25);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+ padding:35px 6%;
+ border-top:1px solid #222a31;
+ color:#68747c;
+ display:flex;
+ justify-content:space-between;
+ font-size:10px;
+ letter-spacing:1px;
+}
+
+/* ================= MODALS ================= */
+
+.modal{
+ position:fixed;
+ inset:0;
+ z-index:3000;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ background:rgba(0,0,0,.78);
+ backdrop-filter:blur(15px);
+}
+
+.modal.show{
+ display:flex;
+}
+
+.modalBox{
+ width:min(500px,100%);
+ padding:28px;
+ border-radius:25px;
+ border:2px solid var(--yellow);
+ background:#0b1015;
+ box-shadow:0 0 55px rgba(255,229,0,.18);
+}
+
+.modalTop{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-bottom:20px;
+}
+
+.close{
+ width:40px;
+ height:40px;
+ border-radius:12px;
+ background:#050607;
+ border:1px solid #444;
+ color:white;
+ cursor:pointer;
+ font-size:20px;
+}
+
+.setting{
+ margin-top:12px;
+ padding:15px;
+ border-radius:15px;
+ border:1px solid #29323a;
+ background:#070a0d;
+}
+
+.settingTitle{
+ color:#8d989f;
+ font-size:10px;
+ margin-bottom:10px;
+}
+
+.options{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+}
+
+.options button{
+ padding:9px 12px;
+ border-radius:10px;
+ border:1px solid #3c464e;
+ background:#11161b;
+ color:white;
+ cursor:pointer;
+}
+
+.options button:hover{
+ border-color:var(--yellow);
+ color:var(--yellow);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+ .hero{
+  grid-template-columns:1fr;
+ }
+ .houseStage{
+  min-height:550px;
+ }
+ .stats{
+  grid-template-columns:repeat(3,1fr);
+ }
+ .features{
+  grid-template-columns:1fr 1fr;
+ }
+ .views{
+  grid-template-columns:1fr 1fr;
+ }
+ .threeDSection{
+  flex-direction:column;
+  align-items:flex-start;
+ }
+}
+
+@media(max-width:650px){
+ .topbar{
+  height:70px;
+  padding:0 12px;
+ }
+ .menu{
+  top:70px;
+  height:calc(100vh - 70px);
+  width:92%;
+  right:-100%;
+ }
+ .logoMark{
+  width:42px;
+  height:42px;
+ }
+ .logoText{
+  font-size:12px;
+ }
+ .topButton{
+  width:44px;
+  height:44px;
+  font-size:19px;
+ }
+ .topButtons{
+  gap:5px;
+ }
+ .hero{
+  padding:110px 18px 40px;
+ }
+ .heroText{
+  padding-left:0;
+ }
+ .heroText h1{
+  letter-spacing:-3px;
+ }
+ .houseStage{
+  min-height:400px;
+ }
+ .section{
+  padding:75px 18px;
+ }
+ .stats{
+  grid-template-columns:1fr 1fr;
+ }
+ .features,.views{
+  grid-template-columns:1fr;
+ }
+ .viewCard{
+  min-height:350px;
+ }
+ .threeDSection{
+  margin:10px 18px 70px;
+  padding:35px 22px;
+ }
+ footer{
+  flex-direction:column;
+  gap:10px;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<header class="topbar">
+
+ <div class="logo">
+  <div class="logoMark">M</div>
+  <div class="logoText">
+   M POPAL
+   <small>DREAM HOUSE</small>
+  </div>
+ </div>
+
+ <div class="topButtons">
+  <button class="topButton" onclick="openSearch()">⌕</button>
+  <button class="topButton" onclick="openSettings()">⚙</button>
+  <button class="topButton" onclick="openMenu()">☰</button>
+ </div>
+
+</header>
+
+
+<!-- MENU -->
+
+<aside class="menu" id="menu">
+
+ <h2>HOUSE MENU</h2>
+ <p>M POPAL • MODERN VILLA EXPERIENCE</p>
+
+ <div class="menuGrid">
+
+  <button class="menuItem" onclick="go('home')">
+   <div class="menuIcon">⌂</div>
+   <div>
+    <b>HOME</b>
+    <span>Main architectural view</span>
+   </div>
+  </button>
+
+  <button class="menuItem" onclick="go('architecture')">
+   <div class="menuIcon">◇</div>
+   <div>
+    <b>ARCHITECTURE</b>
+    <span>Luxury house features</span>
+   </div>
+  </button>
+
+  <button class="menuItem" onclick="go('views')">
+   <div class="menuIcon">▣</div>
+   <div>
+    <b>HOUSE VIEWS</b>
+    <span>Front / side / garden</span>
+   </div>
+  </button>
+
+  <button class="menuItem" onclick="open3D()">
+   <div class="menuIcon">360</div>
+   <div>
+    <b>3D HOUSE</b>
+    <span>Open interactive 360° viewer</span>
+   </div>
+  </button>
+
+  <button class="menuItem" onclick="openSettings()">
+   <div class="menuIcon">⚙</div>
+   <div>
+    <b>SETTINGS</b>
+    <span>Customize the website</span>
+   </div>
+  </button>
+
+  <button class="menuItem" onclick="closeMenu()">
+   <div class="menuIcon">×</div>
+   <div>
+    <b>EXIT MENU</b>
+    <span>Close navigation</span>
+   </div>
+  </button>
+
+ </div>
+
+</aside>
+
+
+<!-- HERO -->
+
+<main id="home">
+
+<section class="hero">
+
+ <div class="heroText">
+
+  <div class="kicker">
+   M POPAL ARCHITECTURE • PRIVATE RESIDENCE
+  </div>
+
+  <h1>
+   THE<br>
+   <span>DREAM</span><br>
+   VILLA
+  </h1>
+
+  <p>
+   A large modern three-level residence surrounded by a private garden,
+   swimming pool, elegant driveway, dark panoramic glass, balconies,
+   architectural lighting and a clean luxury exterior.
+  </p>
+
+  <div class="heroTags">
+   <div class="tag">3 LEVEL VILLA</div>
+   <div class="tag">PRIVATE POOL</div>
+   <div class="tag">LARGE GARDEN</div>
+   <div class="tag">PANORAMIC GLASS</div>
+   <div class="tag">360° VIEW</div>
+  </div>
+
+  <div class="heroButtons">
+   <button class="btn" onclick="open3D()">◇ ENTER 3D HOUSE</button>
+   <button class="btn dark" onclick="go('views')">VIEW EXTERIOR</button>
+  </div>
+
+ </div>
+
+
+ <!-- LARGE ARCHITECTURAL SCENE -->
+
+ <div class="houseStage">
+
+  <div class="houseGlow"></div>
+
+  <div class="architecture">
+
+   <svg viewBox="0 0 1000 650"
+        xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+
+     <!-- SKY -->
+
+     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#74b8e8"/>
+      <stop offset=".48" stop-color="#cbe5f5"/>
+      <stop offset="1" stop-color="#f7e6c7"/>
+     </linearGradient>
+
+     <!-- HOUSE -->
+
+     <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".55" stop-color="#f4f3ee"/>
+      <stop offset="1" stop-color="#c8c9c5"/>
+     </linearGradient>
+
+     <linearGradient id="wallDark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#dadbd7"/>
+      <stop offset=".5" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#b4b7b6"/>
+     </linearGradient>
+
+     <!-- GLASS -->
+
+     <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#07141b"/>
+      <stop offset=".3" stop-color="#1e5668"/>
+      <stop offset=".52" stop-color="#0a202a"/>
+      <stop offset=".78" stop-color="#287f92"/>
+      <stop offset="1" stop-color="#061117"/>
+     </linearGradient>
+
+     <!-- POOL -->
+
+     <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#29e0ee"/>
+      <stop offset=".45" stop-color="#0b9db5"/>
+      <stop offset="1" stop-color="#075a83"/>
+     </linearGradient>
+
+     <!-- ROAD -->
+
+     <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#74797a"/>
+      <stop offset="1" stop-color="#282c2e"/>
+     </linearGradient>
+
+     <!-- GRASS -->
+
+     <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#4c9c51"/>
+      <stop offset="1" stop-color="#173a21"/>
+     </linearGradient>
+
+     <!-- SHADOW -->
+
+     <filter id="shadow">
+      <feDropShadow dx="0" dy="12" stdDeviation="12"
+       flood-color="#000" flood-opacity=".55"/>
+     </filter>
+
+     <filter id="soft">
+      <feGaussianBlur stdDeviation="12"/>
+     </filter>
+
+     <!-- CLOUD -->
+
+     <filter id="cloud">
+      <feGaussianBlur stdDeviation="6"/>
+     </filter>
+
+    </defs>
+
+
+    <!-- SKY -->
+
+    <rect width="1000" height="650" fill="url(#sky)"/>
+
+    <!-- SUN -->
+
+    <circle cx="800" cy="100" r="60"
+            fill="#fff5c0"
+            opacity=".75"
+            filter="url(#soft)"/>
+
+    <circle cx="800" cy="100" r="24"
+            fill="#fff9d8"/>
+
+
+    <!-- CLOUDS -->
+
+    <g fill="#fff" opacity=".48" filter="url(#cloud)">
+     <ellipse cx="150" cy="120" rx="95" ry="27"/>
+     <ellipse cx="220" cy="115" rx="75" ry="22"/>
+     <ellipse cx="95" cy="132" rx="65" ry="18"/>
+    </g>
+
+    <g fill="#fff" opacity=".35" filter="url(#cloud)">
+     <ellipse cx="650" cy="155" rx="100" ry="24"/>
+     <ellipse cx="720" cy="148" rx="65" ry="19"/>
+    </g>
+
+
+    <!-- DISTANT TREES -->
+
+    <path d="M0 350 Q80 310 160 350 Q250 300 330 350
+             Q430 305 510 350 Q600 300 700 350
+             Q800 305 1000 350 L1000 430 L0 430Z"
+          fill="#31583d"/>
+
+
+    <!-- LARGE GARDEN -->
+
+    <path d="M0 400
+             Q200 350 500 380
+             Q800 350 1000 390
+             L1000 650 L0 650Z"
+          fill="url(#grass)"/>
+
+
+    <!-- ROAD -->
+
+    <path d="M0 570
+             L280 470
+             L700 470
+             L1000 570
+             L1000 650
+             L0 650Z"
+          fill="url(#road)"/>
+
+    <!-- ROAD CENTER -->
+
+    <path d="M130 630 L430 515 L470 515 L170 650Z"
+          fill="#bfc0bb"
+          opacity=".55"/>
+
+    <path d="M560 515 L590 515 L880 650 L820 650Z"
+          fill="#bfc0bb"
+          opacity=".35"/>
+
+
+    <!-- POOL -->
+
+    <path d="M35 470
+             L270 430
+             L360 460
+             L120 545
+             Z"
+          fill="#e9ece8"
+          stroke="#fff"
+          stroke-width="6"/>
+
+    <path d="M50 475
+             L268 440
+             L337 464
+             L120 528
+             Z"
+          fill="url(#water)"
+          stroke="#173f4c"
+          stroke-width="3"/>
+
+    <!-- POOL REFLECTION -->
+
+    <path d="M90 486 L265 456"
+          stroke="#d9ffff"
+          stroke-width="5"
+          opacity=".45"/>
+
+    <path d="M120 502 L300 470"
+          stroke="#d9ffff"
+          stroke-width="3"
+          opacity=".3"/>
+
+
+    <!-- MAIN HOUSE SHADOW -->
+
+    <ellipse cx="570" cy="485"
+             rx="350" ry="55"
+             fill="#000"
+             opacity=".35"
+             filter="url(#soft)"/>
+
+
+    <!-- MAIN HOUSE -->
+
+    <g filter="url(#shadow)">
+
+     <!-- LOWER FLOOR -->
+
+     <rect x="310" y="300"
+           width="520"
+           height="190"
+           rx="3"
+           fill="url(#wall)"/>
+
+     <!-- SECOND FLOOR -->
+
+     <rect x="335" y="205"
+           width="470"
+           height="110"
+           fill="url(#wallDark)"/>
+
+     <!-- THIRD FLOOR CENTER -->
+
+     <rect x="420" y="125"
+           width="300"
+           height="90"
+           fill="url(#wall)"/>
+
+
+     <!-- ROOF -->
+
+     <path d="M395 128
+              L570 50
+              L750 128
+              L720 142
+              L570 82
+              L425 142Z"
+           fill="#24292d"/>
+
+     <path d="M405 126
+              L570 58
+              L742 126"
+           fill="none"
+           stroke="#e9e9e3"
+           stroke-width="7"/>
+
+
+     <!-- THIRD FLOOR GLASS -->
+
+     <rect x="455" y="145"
+           width="230"
+           height="62"
+           fill="url(#glass)"
+           stroke="#1b2024"
+           stroke-width="8"/>
+
+     <!-- GLASS LINES -->
+
+     <path d="M512 145 V207 M570 145 V207 M628 145 V207"
+           stroke="#c7e8ee"
+           stroke-opacity=".55"
+           stroke-width="3"/>
+
+
+     <!-- SECOND FLOOR PANORAMIC WINDOWS -->
+
+     <rect x="365" y="225"
+           width="170"
+           height="65"
+           fill="url(#glass)"
+           stroke="#171c20"
+           stroke-width="7"/>
+
+     <rect x="570" y="225"
+           width="190"
+           height="65"
+           fill="url(#glass)"
+           stroke="#171c20"
+           stroke-width="7"/>
+
+     <!-- WINDOW DIVIDERS -->
+
+     <path d="M422 225 V290 M480 225 V290"
+           stroke="#d4e8eb"
+           stroke-opacity=".55"
+           stroke-width="3"/>
+
+     <path d="M632 225 V290 M695 225 V290"
+           stroke="#d4e8eb"
+           stroke-opacity=".55"
+           stroke-width="3"/>
+
+
+     <!-- SECOND FLOOR BALCONY -->
+
+     <rect x="350" y="292"
+           width="430"
+           height="15"
+           fill="#171c20"/>
+
+     <rect x="355" y="274"
+           width="420"
+           height="24"
+           fill="none"
+           stroke="#171c20"
+           stroke-width="4"/>
+
+     <path d="M370 274 V298 M395 274 V298 M420 274 V298
+              M445 274 V298 M470 274 V298 M495 274 V298
+              M520 274 V298 M545 274 V298 M570 274 V298
+              M595 274 V298 M620 274 V298 M645 274 V298
+              M670 274 V298 M695 274 V298 M720 274 V298
+              M745 274 V298"
+           stroke="#171c20"
+           stroke-width="3"/>
+
+
+     <!-- GROUND FLOOR GLASS -->
+
+     <rect x="340" y="330"
+           width="150"
+           height="125"
+           fill="url(#glass)"
+           stroke="#1b2023"
+           stroke-width="8"/>
+
+     <rect x="510" y="330"
+           width="150"
+           height="125"
+           fill="url(#glass)"
+           stroke="#1b2023"
+           stroke-width="8"/>
+
+     <rect x="680" y="330"
+           width="120"
+           height="125"
+           fill="url(#glass)"
+           stroke="#1b2023"
+           stroke-width="8"/>
+
+
+     <!-- GLASS DIVIDERS -->
+
+     <path d="M390 330 V455 M440 330 V455"
+           stroke="#d8f3f5"
+           stroke-opacity=".45"
+           stroke-width="3"/>
+
+     <path d="M560 330 V455 M610 330 V455"
+           stroke="#d8f3f5"
+           stroke-opacity=".45"
+           stroke-width="3"/>
+
+     <path d="M720 330 V455 M760 330 V455"
+           stroke="#d8f3f5"
+           stroke-opacity=".45"
+           stroke-width="3"/>
+
+
+     <!-- MAIN ENTRANCE -->
+
+     <rect x="495" y="345"
+           width="75"
+           height="145"
+           fill="#2b2119"
+           stroke="#111"
+           stroke-width="8"/>
+
+     <rect x="505" y="357"
+           width="55"
+           height="115"
+           fill="#4b3420"/>
+
+     <circle cx="548" cy="416"
+             r="5"
+             fill="#ffe500"/>
+
+
+     <!-- ENTRANCE STEPS -->
+
+     <path d="M470 490 H600 L580 505 H490Z"
+           fill="#e7e8e3"/>
+
+     <path d="M450 505 H620 L600 520 H470Z"
+           fill="#d1d3cf"/>
+
+     <path d="M430 520 H640 L615 538 H455Z"
+           fill="#b9bbb8"/>
+
+
+     <!-- COLUMNS -->
+
+     <rect x="325" y="300"
+           width="24"
+           height="190"
+           fill="#f9f9f4"/>
+
+     <rect x="785" y="300"
+           width="24"
+           height="190"
+           fill="#f9f9f4"/>
+
+     <!-- YELLOW ARCHITECTURAL LIGHT -->
+
+     <path d="M310 315 H830"
+           stroke="#ffe500"
+           stroke-width="4"
+           opacity=".9"/>
+
+     <path d="M335 305 H805"
+           stroke="#ffe500"
+           stroke-width="2"
+           opacity=".55"/>
+
+    </g>
+
+
+    <!-- FRONT GARDEN PLANTS -->
+
+    <g>
+
+     <!-- LEFT PALM -->
+
+     <path d="M150 475 Q160 400 170 340"
+           stroke="#604328"
+           stroke-width="12"
+           fill="none"/>
+
+     <path d="M170 350
+              Q115 320 100 345
+              Q145 350 170 355
+              Q120 365 110 385
+              Q145 375 175 360
+              Q145 400 155 410
+              Q175 380 180 355
+              Q205 390 230 395
+              Q215 370 185 350
+              Q225 350 245 330
+              Q205 325 175 342Z"
+           fill="#3e8d4d"/>
+
+
+     <!-- RIGHT TREE -->
+
+     <rect x="875" y="405"
+           width="15"
+           height="90"
+           fill="#50351f"/>
+
+     <circle cx="882" cy="390"
+             r="55"
+             fill="#1e6334"/>
+
+     <circle cx="850" cy="410"
+             r="35"
+             fill="#2e8040"/>
+
+     <circle cx="915" cy="414"
+             r="35"
+             fill="#347f40"/>
+
+
+     <!-- BUSHES -->
+
+     <g fill="#18532d">
+      <circle cx="300" cy="500" r="25"/>
+      <circle cx="335" cy="500" r="22"/>
+      <circle cx="805" cy="500" r="25"/>
+      <circle cx="835" cy="500" r="20"/>
+     </g>
+
+    </g>
+
+
+    <!-- LIGHTS -->
+
+    <g fill="#ffe500">
+
+     <circle cx="325" cy="480" r="5"/>
+     <circle cx="350" cy="480" r="5"/>
+     <circle cx="790" cy="480" r="5"/>
+     <circle cx="815" cy="480" r="5"/>
+
+    </g>
+
+   </svg>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="section">
+
+ <div class="stats">
+
+  <div class="stat">
+   <strong>03</strong>
+   <span>FLOORS</span>
+  </div>
+
+  <div class="stat">
+   <strong>01</strong>
+   <span>PRIVATE POOL</span>
+  </div>
+
+  <div class="stat">
+   <strong>360°</strong>
+   <span>EXTERIOR VIEW</span>
+  </div>
+
+  <div class="stat">
+   <strong>∞</strong>
+   <span>GARDEN SPACE</span>
+  </div>
+
+  <div class="stat">
+   <strong>24/7</strong>
+   <span>ARCHITECTURAL LIGHT</span>
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ARCHITECTURE -->
+
+<section class="section" id="architecture">
+
+ <div class="sectionTitle">
+
+  <div class="kicker">ARCHITECTURE</div>
+
+  <h2>
+   A house made<br>
+   to be watched.
+  </h2>
+
+  <p>
+   The new design combines bright architectural walls with dark panoramic
+   glass, balconies, stone-like surfaces, landscaping, water and a long
+   entrance road.
+  </p>
+
+ </div>
+
+
+ <div class="features">
+
+  <article class="feature">
+   <div class="featureIcon">🏛️</div>
+   <h3>Three-Level Villa</h3>
+   <p>
+    A large multi-floor structure with a central upper level,
+    strong roof geometry and wide proportions.
+   </p>
+  </article>
+
+  <article class="feature">
+   <div class="featureIcon">🪟</div>
+   <h3>Panoramic Glass</h3>
+   <p>
+    Large dark reflective windows cover the front and sides,
+    giving the house the clean modern appearance.
+   </p>
+  </article>
+
+  <article class="feature">
+   <div class="featureIcon">🏊</div>
+   <h3>Private Pool</h3>
+   <p>
+    A large turquoise pool sits directly beside the front
+    garden and entrance terrace.
+   </p>
+  </article>
+
+  <article class="feature">
+   <div class="featureIcon">🌴</div>
+   <h3>Grand Garden</h3>
+   <p>
+    Palm trees, large bushes, lawn and decorative plants
+    surround the residence.
+   </p>
+  </article>
+
+  <article class="feature">
+   <div class="featureIcon">🛣️</div>
+   <h3>Private Driveway</h3>
+   <p>
+    A broad architectural road leads directly toward the
+    entrance of the villa.
+   </p>
+  </article>
+
+  <article class="feature">
+   <div class="featureIcon">💡</div>
+   <h3>Golden Lighting</h3>
+   <p>
+    Strong yellow architectural lines and warm lighting
+    create contrast against the white exterior.
+   </p>
+  </article>
+
+ </div>
+
+</section>
+
+
+<!-- VIEWS -->
+
+<section class="section" id="views">
+
+ <div class="sectionTitle">
+
+  <div class="kicker">EXTERIOR COLLECTION</div>
+
+  <h2>
+   Front. Side.<br>
+   Garden.
+  </h2>
+
+  <p>
+   The exterior design is built around multiple viewing directions,
+   not just a flat front elevation.
+  </p>
+
+ </div>
+
+
+ <div class="views">
+
+  <!-- FRONT VIEW -->
+
+  <div class="viewCard">
+
+   <svg viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+     <linearGradient id="vfsky" x2="0" y2="1">
+      <stop stop-color="#66acd9"/>
+      <stop offset="1" stop-color="#f5dfc0"/>
+     </linearGradient>
+
+     <linearGradient id="vfwall">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#c7c9c7"/>
+     </linearGradient>
+
+     <linearGradient id="vfglass">
+      <stop stop-color="#06151b"/>
+      <stop offset=".5" stop-color="#267b8d"/>
+      <stop offset="1" stop-color="#061117"/>
+     </linearGradient>
+    </defs>
+
+    <rect width="500" height="500" fill="url(#vfsky)"/>
+
+    <rect y="360" width="500" height="140" fill="#367344"/>
+
+    <path d="M0 430 L190 370 H320 L500 430 V500 H0Z"
+          fill="#55595a"/>
+
+    <rect x="100" y="190"
+          width="300" height="190"
+          fill="url(#vfwall)"
+          stroke="#202427"
+          stroke-width="6"/>
+
+    <rect x="135" y="120"
+          width="230" height="80"
+          fill="#f4f4ef"/>
+
+    <path d="M115 120 L250 55 L385 120"
+          fill="#24292d"
+          stroke="#eee"
+          stroke-width="5"/>
+
+    <rect x="160" y="135"
+          width="180" height="55"
+          fill="url(#vfglass)"
+          stroke="#171b1e"
+          stroke-width="6"/>
+
+    <rect x="125" y="220"
+          width="105" height="85"
+          fill="url(#vfglass)"
+          stroke="#171b1e"
+          stroke-width="6"/>
+
+    <rect x="270" y="220"
+          width="105" height="85"
+          fill="url(#vfglass)"
+          stroke="#171b1e"
+          stroke-width="6"/>
+
+    <rect x="225" y="270"
+          width="50" height="110"
+          fill="#382519"
+          stroke="#111"
+          stroke-width="6"/>
+
+    <path d="M110 210 H390"
+          stroke="#ffe500"
+          stroke-width="4"/>
+
+    <path d="M130 315 H370"
+          stroke="#171b1e"
+          stroke-width="8"/>
+
+    <circle cx="65" cy="350" r="45" fill="#286b38"/>
+    <circle cx="440" cy="355" r="45" fill="#2e713b"/>
+
+   </svg>
+
+   <div class="viewOverlay">
+    <h3>FRONT</h3>
+    <span>MAIN ENTRANCE • POOL • DRIVEWAY</span>
+   </div>
+
+  </div>
+
+
+  <!-- SIDE VIEW -->
+
+  <div class="viewCard">
+
+   <svg viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+     <linearGradient id="vssky" x2="0" y2="1">
+      <stop stop-color="#4b89b7"/>
+      <stop offset="1" stop-color="#d8e4e5"/>
+     </linearGradient>
+
+     <linearGradient id="vsideglass">
+      <stop stop-color="#05131a"/>
+      <stop offset=".5" stop-color="#257e92"/>
+      <stop offset="1" stop-color="#071017"/>
+     </linearGradient>
+    </defs>
+
+    <rect width="500" height="500" fill="url(#vssky)"/>
+    <rect y="350" width="500" height="150" fill="#316c38"/>
+
+    <path d="M0 430 L180 350 H500 V500 H0Z"
+          fill="#55595a"/>
+
+    <polygon points="130,125 330,75 440,140 250,180"
+             fill="#202529"/>
+
+    <polygon points="130,125 130,350 330,315 330,75"
+             fill="#f7f7f2"/>
+
+    <polygon points="330,75 440,140 440,320 330,315"
+             fill="#d1d3d0"/>
+
+    <rect x="165" y="155"
+          width="100" height="65"
+          fill="url(#vsideglass)"
+          stroke="#15191c"
+          stroke-width="7"/>
+
+    <rect x="165" y="240"
+          width="100" height="65"
+          fill="url(#vsideglass)"
+          stroke="#15191c"
+          stroke-width="7"/>
+
+    <rect x="350" y="160"
+          width="60" height="65"
+          fill="url(#vsideglass)"
+          stroke="#15191c"
+          stroke-width="6"/>
+
+    <rect x="350" y="245"
+          width="60" height="55"
+          fill="url(#vsideglass)"
+          stroke="#15191c"
+          stroke-width="6"/>
+
+    <path d="M130 230 H330"
+          stroke="#ffe500"
+          stroke-width="4"/>
+
+    <circle cx="80" cy="355" r="42" fill="#276c37"/>
+    <circle cx="460" cy="360" r="45" fill="#2b703b"/>
+
+   </svg>
+
+   <div class="viewOverlay">
+    <h3>SIDE</h3>
+    <span>GLASS WALL • BALCONY • GARDEN</span>
+   </div>
+
+  </div>
+
+
+  <!-- GARDEN VIEW -->
+
+  <div class="viewCard">
+
+   <svg viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+
+     <linearGradient id="vgsky" x2="0" y2="1">
+      <stop stop-color="#4d91c2"/>
+      <stop offset="1" stop-color="#f0dcc0"/>
+     </linearGradient>
+
+     <linearGradient id="vgwater" x2="1" y2="1">
+      <stop stop-color="#35dcea"/>
+      <stop offset=".6" stop-color="#0b9eb4"/>
+      <stop offset="1" stop-color="#075a80"/>
+     </linearGradient>
+
+    </defs>
+
+    <rect width="500" height="500" fill="url(#vgsky)"/>
+
+    <rect y="320" width="500" height="180" fill="#397942"/>
+
+    <rect x="115" y="125"
+          width="270" height="205"
+          fill="#f4f4ef"
+          stroke="#202427"
+          stroke-width="6"/>
+
+    <rect x="155" y="160"
+          width="190"
+          height="70"
+          fill="#09212a"
+          stroke="#161b1e"
+          stroke-width="7"/>
+
+    <path d="M130 115 L250 55 L370 115"
+          fill="#24292d"
+          stroke="#fff"
+          stroke-width="5"/>
+
+    <rect x="135" y="240"
+          width="95"
+          height="70"
+          fill="#08212a"
+          stroke="#171b1e"
+          stroke-width="6"/>
+
+    <rect x="270" y="240"
+          width="95"
+          height="70"
+          fill="#08212a"
+          stroke="#171b1e"
+          stroke-width="6"/>
+
+    <!-- POOL -->
+
+    <path d="M25 380 L220 345 L420 390 L235 455Z"
+          fill="#edf0eb"
+          stroke="#fff"
+          stroke-width="5"/>
+
+    <path d="M42 383 L220 355 L398 392 L235 438Z"
+          fill="url(#vgwater)"/>
+
+    <path d="M75 390 L220 368"
+          stroke="#d8ffff"
+          stroke-width="4"
+          opacity=".5"/>
+
+    <!-- PALMS -->
+
+    <path d="M70 330 Q72 270 82 225"
+          stroke="#5b3d25"
+          stroke-width="9"
+          fill="none"/>
+
+    <path d="M82 230 Q40 210 25 230 Q55 232 82 235
+             Q48 245 38 263 Q65 250 85 238
+             Q75 270 85 280 Q95 250 90 235
+             Q120 255 142 250 Q120 235 95 225
+             Q120 220 135 202 Q105 207 85 220Z"
+          fill="#3f8c49"/>
+
+    <circle cx="440" cy="335" r="55" fill="#286e39"/>
+    <circle cx="405" cy="350" r="35" fill="#317d40"/>
+
+   </svg>
+
+   <div class="viewOverlay">
+    <h3>GARDEN</h3>
+    <span>POOL • PALMS • BACK EXTERIOR</span>
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- 3D -->
+
+<section class="threeDSection">
+
+ <div class="threeDText">
+
+  <div class="kicker">MAIN EXPERIENCE</div>
+
+  <h2>
+   WALK AROUND<br>
+   YOUR HOUSE.
+  </h2>
+
+  <p>
+   Open the dedicated 3D viewer and inspect the villa from
+   the front, right side, back, left side and roof.
+   Drag with your finger or mouse to rotate the architecture.
+  </p>
+
+  <button class="threeDButton" onclick="open3D()">
+   ◇ OPEN FULL 3D HOUSE
+  </button>
+
+ </div>
+
+</section>
+
+
+<footer>
+
+ <span>© 2026 M POPAL DREAM HOUSE</span>
+ <span>MODERN VILLA • GARDEN • POOL • 360°</span>
+
+</footer>
+
+</main>
+
+
+<!-- SETTINGS -->
+
+<div class="modal" id="settingsModal">
+
+ <div class="modalBox">
+
+  <div class="modalTop">
+   <h2>SETTINGS</h2>
+   <button class="close" onclick="closeSettings()">×</button>
+  </div>
+
+  <div class="setting">
+   <div class="settingTitle">TEXT SIZE</div>
+   <div class="options">
+    <button onclick="textSize('small')">Small</button>
+    <button onclick="textSize('normal')">Normal</button>
+    <button onclick="textSize('large')">Large</button>
+   </div>
+  </div>
+
+  <div class="setting">
+   <div class="settingTitle">EDGE COLOR</div>
+   <div class="options">
+    <button onclick="edge('#ffe500')">Sharp Yellow</button>
+    <button onclick="edge('#ffb800')">Gold</button>
+    <button onclick="edge('#00eaff')">Cyan</button>
+   </div>
+  </div>
+
+  <div class="setting">
+   <div class="settingTitle">3D HOUSE</div>
+   <div class="options">
+    <button onclick="open3D()">Launch 3D</button>
+   </div>
+  </div>
+
+ </div>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="modal" id="searchModal">
+
+ <div class="modalBox">
+
+  <div class="modalTop">
+   <h2>HOUSE SEARCH</h2>
+   <button class="close" onclick="closeSearch()">×</button>
+  </div>
+
+  <div class="setting">
+
+   <input id="searchInput"
+    placeholder="3D, pool, garden, glass..."
+    style="
+    width:100%;
+    padding:15px;
+    border-radius:12px;
+    border:1px solid #3a454d;
+    background:#050708;
+    color:white;
+    outline:none;
+    ">
+
+  </div>
+
+  <button class="btn"
+   style="width:100%;margin-top:12px"
+   onclick="siteSearch()">
+   SEARCH
+  </button>
+
+  <div id="result"
+       style="margin-top:15px;color:#8d989f;font-size:12px">
+  </div>
+
+ </div>
+
+</div>
+
+
+<script>
+
+const menu=document.getElementById("menu");
+const settingsModal=document.getElementById("settingsModal");
+const searchModal=document.getElementById("searchModal");
+
+function openMenu(){
+ menu.classList.add("open");
+}
+
+function closeMenu(){
+ menu.classList.remove("open");
+}
+
+function go(id){
+ closeMenu();
+
+ setTimeout(()=>{
+  document.getElementById(id)?.scrollIntoView({
+   behavior:"smooth"
+  });
+ },100);
+}
+
+function open3D(){
+ window.location.href="3d.html";
+}
+
+function openSettings(){
+ closeMenu();
+ settingsModal.classList.add("show");
+}
+
+function closeSettings(){
+ settingsModal.classList.remove("show");
+}
+
+function openSearch(){
+ searchModal.classList.add("show");
+
+ setTimeout(()=>{
+  document.getElementById("searchInput").focus();
+ },200);
+}
+
+function closeSearch(){
+ searchModal.classList.remove("show");
+}
+
+function textSize(size){
+
+ if(size==="small"){
+  document.body.style.fontSize="14px";
+ }
+
+ if(size==="normal"){
+  document.body.style.fontSize="16px";
+ }
+
+ if(size==="large"){
+  document.body.style.fontSize="18px";
+ }
+
+}
+
+function edge(color){
+
+ document.documentElement
+ .style
+ .setProperty("--yellow",color);
+
+}
+
+function siteSearch(){
+
+ const q=document
+  .getElementById("searchInput")
+  .value
+  .toLowerCase();
+
+ const result=document.getElementById("result");
+
+ if(q.includes("3d")||q.includes("house")){
+
+  result.innerHTML="3D HOUSE found. Opening...";
+  setTimeout(open3D,700);
+
+ }
+
+ else if(q.includes("pool")){
+
+  result.innerHTML="PRIVATE POOL → available in the exterior design.";
+
+ }
+
+ else if(q.includes("garden")){
+
+  result.innerHTML="GRAND GARDEN → see the exterior views below.";
+
+  setTimeout(()=>{
+   closeSearch();
+   go("views");
+  },900);
+
+ }
+
+ else if(q.includes("glass")){
+
+  result.innerHTML="PANORAMIC GLASS → see the Architecture section.";
+
+  setTimeout(()=>{
+   closeSearch();
+   go("architecture");
+  },900);
+
+ }
+
+ else{
+
+  result.innerHTML=
+   "Try: 3D, house, pool, garden or glass.";
+
+ }
+
+}
+
+document.addEventListener("keydown",e=>{
+
+ if(e.key==="Escape"){
+
+  closeMenu();
+  closeSettings();
+  closeSearch();
+
+ }
+
+});
+
+</script>
+
+</body>
+</html>
