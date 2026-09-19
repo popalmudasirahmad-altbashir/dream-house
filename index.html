@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M POPAL DREAM HOUSE</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#050608;
+ --panel:#0c1015;
+ --panel2:#111820;
+ --white:#f7f7f2;
+ --silver:#bfc7ce;
+ --black:#020305;
+ --yellow:#ffe600;
+ --yellow2:#fff000;
+ --gold:#ffb800;
+ --cyan:#00eaff;
+ --blue:#267cff;
+ --purple:#8a35ff;
+ --pink:#ff2ea6;
+ --green:#35ff9a;
+ --red:#ff405c;
+}
+html{scroll-behavior:smooth}
+body{
+ font-family:Arial,Helvetica,sans-serif;
+ background:
+ radial-gradient(circle at 10% 15%,rgba(255,230,0,.10),transparent 25%),
+ radial-gradient(circle at 90% 25%,rgba(0,234,255,.09),transparent 25%),
+ radial-gradient(circle at 50% 90%,rgba(138,53,255,.10),transparent 30%),
+ var(--bg);
+ color:white;
+ overflow-x:hidden;
+}
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ background:
+ linear-gradient(115deg,transparent 0 47%,rgba(255,230,0,.045) 48%,transparent 49%),
+ linear-gradient(25deg,transparent 0 68%,rgba(0,234,255,.035) 69%,transparent 70%);
+ z-index:-1;
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+.top{
+ position:fixed;
+ top:0;left:0;right:0;
+ height:82px;
+ z-index:1000;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 22px;
+ background:rgba(3,5,7,.78);
+ backdrop-filter:blur(20px);
+ border-bottom:2px solid var(--yellow);
+ box-shadow:0 0 25px rgba(255,230,0,.22);
+}
+.logo{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ font-weight:900;
+ letter-spacing:2px;
+}
+.logoMark{
+ width:48px;height:48px;
+ display:grid;place-items:center;
+ border:2px solid var(--yellow);
+ background:linear-gradient(145deg,#fff,var(--yellow),#111);
+ color:#050505;
+ clip-path:polygon(50% 0,100% 25%,100% 100%,0 100%,0 25%);
+ box-shadow:0 0 20px rgba(255,230,0,.55);
+}
+.logoText{font-size:18px}
+.logoText small{
+ display:block;
+ color:var(--yellow);
+ font-size:9px;
+ letter-spacing:4px;
+ margin-top:3px;
+}
+.topActions{display:flex;gap:10px}
+.iconBtn{
+ width:52px;height:52px;
+ border-radius:15px;
+ border:1px solid rgba(255,255,255,.2);
+ background:linear-gradient(145deg,#181d23,#050608);
+ color:white;
+ cursor:pointer;
+ font-size:23px;
+ transition:.25s;
+}
+.iconBtn:hover{
+ border-color:var(--yellow);
+ color:var(--yellow);
+ transform:translateY(-3px);
+ box-shadow:0 0 18px rgba(255,230,0,.35);
+}
+
+.menu{
+ position:fixed;
+ top:82px;
+ right:-390px;
+ width:360px;
+ height:calc(100vh - 82px);
+ z-index:999;
+ padding:25px;
+ background:rgba(6,9,12,.96);
+ backdrop-filter:blur(25px);
+ border-left:2px solid var(--yellow);
+ box-shadow:-10px 0 50px rgba(255,230,0,.18);
+ transition:.45s;
+ overflow-y:auto;
+}
+.menu.open{right:0}
+.menuTitle{
+ font-size:24px;
+ font-weight:900;
+ margin-bottom:8px;
+}
+.menuSub{color:#8e9aa5;font-size:12px;margin-bottom:22px}
+.menuGrid{display:grid;gap:12px}
+.menuItem{
+ width:100%;
+ padding:17px;
+ border-radius:18px;
+ border:1px solid #28313a;
+ background:linear-gradient(145deg,#141a20,#07090b);
+ color:white;
+ display:flex;
+ align-items:center;
+ gap:16px;
+ cursor:pointer;
+ transition:.25s;
+ text-align:left;
+}
+.menuItem:hover{
+ transform:translateX(-5px);
+ border-color:var(--yellow);
+ box-shadow:0 0 22px rgba(255,230,0,.18);
+}
+.mi{
+ width:49px;height:49px;
+ display:grid;place-items:center;
+ border-radius:14px;
+ font-size:22px;
+ background:#050505;
+ border:1px solid var(--yellow);
+ color:var(--yellow);
+}
+.menuItem b{display:block;font-size:15px}
+.menuItem span{display:block;color:#7d8993;font-size:10px;margin-top:4px}
+
+.hero{
+ min-height:100vh;
+ padding:145px 7% 70px;
+ display:grid;
+ grid-template-columns:1fr 1.15fr;
+ gap:45px;
+ align-items:center;
+ position:relative;
+}
+.heroText h1{
+ font-size:clamp(45px,6vw,86px);
+ line-height:.91;
+ letter-spacing:-4px;
+}
+.heroText h1 span{
+ color:var(--yellow);
+ text-shadow:0 0 25px rgba(255,230,0,.45);
+}
+.heroText p{
+ margin:25px 0;
+ max-width:600px;
+ color:#aab4bd;
+ line-height:1.8;
+}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{
+ padding:8px 12px;
+ border-radius:100px;
+ background:#11161b;
+ border:1px solid #303942;
+ font-size:10px;
+}
+.heroBtns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{
+ padding:15px 22px;
+ border-radius:14px;
+ border:1px solid var(--yellow);
+ background:var(--yellow);
+ color:#050505;
+ font-weight:900;
+ cursor:pointer;
+ box-shadow:0 0 22px rgba(255,230,0,.28);
+ transition:.25s;
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 35px rgba(255,230,0,.5)}
+.btn.dark{
+ background:#080a0c;
+ color:white;
+ border-color:#56606a;
+ box-shadow:none;
+}
+
+.heroVisual{
+ min-height:600px;
+ position:relative;
+ display:grid;
+ place-items:center;
+}
+.heroGlow{
+ position:absolute;
+ width:80%;height:65%;
+ background:radial-gradient(circle,rgba(255,230,0,.17),transparent 65%);
+ filter:blur(20px);
+}
+.house{
+ position:relative;
+ width:min(620px,95%);
+ height:470px;
+ filter:drop-shadow(0 25px 35px rgba(0,0,0,.8));
+}
+.ground{
+ position:absolute;
+ left:2%;right:2%;bottom:10px;
+ height:65px;
+ background:
+ linear-gradient(90deg,#1d241e,#31412c,#192019);
+ border-radius:50%;
+ transform:perspective(400px) rotateX(55deg);
+ box-shadow:0 0 30px rgba(53,255,154,.12);
+}
+.mainHouse{
+ position:absolute;
+ left:10%;right:10%;
+ bottom:65px;
+ height:300px;
+ background:linear-gradient(145deg,#fff,#e8e8e3 50%,#b9bec0);
+ border:4px solid #17191b;
+ box-shadow:
+ inset -35px 0 50px rgba(0,0,0,.16),
+ 0 0 0 3px rgba(255,230,0,.5);
+}
+.second{
+ position:absolute;
+ left:15%;right:15%;
+ top:35px;
+ height:180px;
+ background:linear-gradient(145deg,#fafaf6,#d5d7d7);
+ border:4px solid #151719;
+}
+.roof{
+ position:absolute;
+ left:8%;right:8%;
+ top:0;
+ height:70px;
+ background:linear-gradient(150deg,#181c20,#050607);
+ clip-path:polygon(50% 0,100% 100%,0 100%);
+ border-bottom:5px solid var(--yellow);
+}
+.roof2{
+ position:absolute;
+ left:14%;right:14%;
+ top:23px;
+ height:35px;
+ background:#252b30;
+ clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+.window{
+ position:absolute;
+ width:52px;height:82px;
+ background:
+ linear-gradient(90deg,transparent 46%,rgba(255,255,255,.8) 48%,transparent 51%),
+ linear-gradient(0deg,transparent 46%,rgba(255,255,255,.8) 48%,transparent 51%),
+ linear-gradient(145deg,#091d25,#1f8ea0 50%,#071117);
+ border:4px solid #24292d;
+ box-shadow:inset 0 0 15px rgba(0,234,255,.25);
+}
+.window.big{width:95px;height:110px}
+.w1{left:8%;top:35px}.w2{left:35%;top:35px}.w3{right:8%;top:35px}
+.w4{left:8%;bottom:35px}.w5{right:8%;bottom:35px}
+.w6{left:34%;bottom:35px}
+.door{
+ position:absolute;
+ left:44%;
+ bottom:0;
+ width:72px;height:130px;
+ background:linear-gradient(90deg,#24160d,#5b351b,#17100a);
+ border:4px solid #101010;
+ box-shadow:0 0 20px rgba(255,184,0,.15);
+}
+.door:after{
+ content:"";
+ position:absolute;
+ right:9px;top:50%;
+ width:7px;height:7px;
+ border-radius:50%;
+ background:var(--yellow);
+ box-shadow:0 0 10px var(--yellow);
+}
+.balcony{
+ position:absolute;
+ left:27%;top:205px;
+ width:46%;height:24px;
+ background:#191d20;
+ border:2px solid var(--yellow);
+}
+.balcony:after{
+ content:"";
+ position:absolute;
+ left:0;right:0;top:-45px;
+ height:45px;
+ border:3px solid #17191a;
+ border-bottom:0;
+}
+.light{
+ position:absolute;
+ width:13px;height:13px;
+ border-radius:50%;
+ background:var(--yellow);
+ box-shadow:0 0 20px var(--yellow);
+}
+.l1{left:18%;bottom:125px}.l2{right:18%;bottom:125px}
+.l3{left:48%;bottom:190px}
+
+.section{padding:100px 7%}
+.sectionHead{margin-bottom:40px}
+.kicker{
+ color:var(--yellow);
+ font-size:11px;
+ letter-spacing:4px;
+ font-weight:bold;
+}
+.sectionHead h2{
+ font-size:clamp(35px,5vw,60px);
+ margin-top:8px;
+}
+.sectionHead p{
+ color:#8f9ba4;
+ margin-top:12px;
+ max-width:650px;
+ line-height:1.7;
+}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px;
+}
+.stat{
+ padding:25px;
+ min-height:125px;
+ border:1px solid #273039;
+ border-radius:20px;
+ background:linear-gradient(145deg,#121820,#07090b);
+}
+.stat strong{font-size:30px;color:var(--yellow)}
+.stat span{display:block;color:#7f8a94;font-size:11px;margin-top:8px}
+
+.features{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+.card{
+ padding:28px;
+ border:1px solid #28323a;
+ border-radius:24px;
+ background:
+ linear-gradient(145deg,rgba(255,255,255,.04),transparent),
+ #0a0e12;
+ min-height:210px;
+ transition:.3s;
+ position:relative;
+ overflow:hidden;
+}
+.card:before{
+ content:"";
+ position:absolute;
+ width:120px;height:120px;
+ right:-50px;top:-50px;
+ background:var(--yellow);
+ filter:blur(65px);
+ opacity:.12;
+}
+.card:hover{
+ transform:translateY(-7px);
+ border-color:var(--yellow);
+ box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+.cardIcon{font-size:34px;margin-bottom:20px}
+.card h3{margin-bottom:10px}
+.card p{color:#89949e;line-height:1.7;font-size:13px}
+
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+.view{
+ height:320px;
+ border-radius:24px;
+ overflow:hidden;
+ position:relative;
+ border:1px solid #313a42;
+ background:linear-gradient(145deg,#151a20,#050608);
+}
+.view:after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(transparent 60%,rgba(0,0,0,.8));
+}
+.viewHouse{
+ position:absolute;
+ left:15%;right:15%;
+ bottom:55px;
+ height:180px;
+ background:linear-gradient(145deg,#fff,#cdd0d1);
+ border:4px solid #151719;
+}
+.viewHouse:before{
+ content:"";
+ position:absolute;
+ left:-10%;right:-10%;
+ top:-70px;
+ height:85px;
+ background:#171b1e;
+ clip-path:polygon(50% 0,100% 100%,0 100%);
+ border-bottom:4px solid var(--yellow);
+}
+.viewWindow{
+ position:absolute;
+ top:35px;
+ width:38px;height:55px;
+ background:linear-gradient(135deg,#05151b,#28a1b7);
+ border:3px solid #15191b;
+}
+.vw1{left:10%}.vw2{left:40%}.vw3{right:10%}
+.viewDoor{
+ position:absolute;
+ bottom:0;left:43%;
+ width:48px;height:80px;
+ background:#3b2414;
+ border:3px solid #111;
+}
+.viewLabel{
+ position:absolute;
+ z-index:5;
+ left:20px;bottom:18px;
+ font-size:20px;
+ font-weight:900;
+}
+.viewLabel small{
+ display:block;
+ font-size:9px;
+ letter-spacing:3px;
+ color:var(--yellow);
+ margin-top:4px;
+}
+
+.cta{
+ margin:30px 7% 100px;
+ padding:55px;
+ border:2px solid var(--yellow);
+ border-radius:30px;
+ background:
+ radial-gradient(circle at 80% 20%,rgba(255,230,0,.16),transparent 30%),
+ linear-gradient(145deg,#121820,#060708);
+ text-align:center;
+ box-shadow:0 0 45px rgba(255,230,0,.09);
+}
+.cta h2{font-size:clamp(32px,5vw,62px)}
+.cta p{color:#929da5;margin:14px auto 25px;max-width:650px;line-height:1.7}
+
+footer{
+ padding:35px 7%;
+ border-top:1px solid #252c33;
+ color:#68737c;
+ display:flex;
+ justify-content:space-between;
+ gap:20px;
+ font-size:11px;
+}
+
+.modal{
+ position:fixed;
+ inset:0;
+ z-index:2000;
+ background:rgba(0,0,0,.75);
+ backdrop-filter:blur(12px);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+}
+.modal.show{display:flex}
+.modalBox{
+ width:min(500px,100%);
+ background:#0c1116;
+ border:2px solid var(--yellow);
+ border-radius:25px;
+ padding:28px;
+ box-shadow:0 0 50px rgba(255,230,0,.2);
+}
+.modalTop{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:25px;
+}
+.close{
+ width:40px;height:40px;
+ border-radius:12px;
+ border:1px solid #444;
+ background:#050607;color:white;
+ cursor:pointer;
+}
+.setting{
+ padding:15px;
+ border-radius:15px;
+ background:#080b0e;
+ border:1px solid #29323a;
+ margin-top:10px;
+}
+.settingTitle{font-size:12px;color:#9aa5ad;margin-bottom:10px}
+.options{display:flex;gap:7px;flex-wrap:wrap}
+.options button{
+ padding:9px 12px;
+ border-radius:10px;
+ border:1px solid #39434b;
+ background:#12171c;
+ color:white;
+ cursor:pointer;
+}
+.options button:hover{border-color:var(--yellow)}
+
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr;padding-top:125px}
+ .heroVisual{min-height:500px}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .features{grid-template-columns:1fr 1fr}
+ .gallery{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+ .top{height:70px;padding:0 12px}
+ .menu{top:70px;height:calc(100vh - 70px);width:92%;right:-100%}
+ .logoText{font-size:13px}
+ .logoMark{width:42px;height:42px}
+ .iconBtn{width:45px;height:45px}
+ .hero{padding:110px 18px 40px}
+ .heroVisual{min-height:410px}
+ .house{transform:scale(.76)}
+ .stats,.features,.gallery{grid-template-columns:1fr}
+ .section{padding:70px 18px}
+ .cta{margin:10px 18px 70px;padding:35px 20px}
+ footer{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+ <div class="logo">
+  <div class="logoMark">M</div>
+  <div class="logoText">
+   M POPAL
+   <small>DREAM HOUSE</small>
+  </div>
+ </div>
+
+ <div class="topActions">
+  <button class="iconBtn" onclick="openSearch()">⌕</button>
+  <button class="iconBtn" onclick="openSettings()">⚙</button>
+  <button class="iconBtn" onclick="openMenu()">☰</button>
+ </div>
+</header>
+
+<aside class="menu" id="menu">
+ <div class="menuTitle">HOUSE MENU</div>
+ <div class="menuSub">M POPAL • LUXURY HOME EXPERIENCE</div>
+
+ <div class="menuGrid">
+  <button class="menuItem" onclick="go('home')">
+   <div class="mi">⌂</div>
+   <div><b>Home</b><span>Main house page</span></div>
+  </button>
+
+  <button class="menuItem" onclick="go('features')">
+   <div class="mi">✦</div>
+   <div><b>Architecture</b><span>House features</span></div>
+  </button>
+
+  <button class="menuItem" onclick="go('gallery')">
+   <div class="mi">▣</div>
+   <div><b>House Views</b><span>Exterior views</span></div>
+  </button>
+
+  <button class="menuItem" onclick="open3D()">
+   <div class="mi">◇</div>
+   <div><b>3D HOUSE</b><span>Open full 3D viewer</span></div>
+  </button>
+
+  <button class="menuItem" onclick="openSettings()">
+   <div class="mi">⚙</div>
+   <div><b>Settings</b><span>Customize experience</span></div>
+  </button>
+
+  <button class="menuItem" onclick="closeMenu()">
+   <div class="mi">×</div>
+   <div><b>Exit Menu</b><span>Close navigation</span></div>
+  </button>
+ </div>
+</aside>
+
+<main id="home">
+
+<section class="hero">
+ <div class="heroText">
+  <div class="kicker">M POPAL ARCHITECTURE • 2026</div>
+  <h1>THE<br><span>DREAM</span><br>HOUSE</h1>
+
+  <p>
+   A modern multi-level luxury residence designed with bright architecture,
+   dark glass, elegant stone details, dramatic lighting and a huge private garden.
+  </p>
+
+  <div class="tags">
+   <div class="tag">3 FLOORS</div>
+   <div class="tag">LUXURY GLASS</div>
+   <div class="tag">PRIVATE GARDEN</div>
+   <div class="tag">360° 3D</div>
+  </div>
+
+  <div class="heroBtns">
+   <button class="btn" onclick="open3D()">◇ ENTER 3D HOUSE</button>
+   <button class="btn dark" onclick="go('gallery')">VIEW HOUSE</button>
+  </div>
+ </div>
+
+ <div class="heroVisual">
+  <div class="heroGlow"></div>
+
+  <div class="house">
+   <div class="ground"></div>
+
+   <div class="mainHouse">
+    <div class="second"></div>
+    <div class="roof"></div>
+    <div class="roof2"></div>
+
+    <div class="window w1"></div>
+    <div class="window w2"></div>
+    <div class="window w3"></div>
+    <div class="window big w4"></div>
+    <div class="window big w5"></div>
+    <div class="window big w6"></div>
+
+    <div class="balcony"></div>
+    <div class="door"></div>
+
+    <div class="light l1"></div>
+    <div class="light l2"></div>
+    <div class="light l3"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="stats">
+  <div class="stat"><strong>03</strong><span>LEVELS / FLOORS</span></div>
+  <div class="stat"><strong>360°</strong><span>EXTERIOR VIEW</span></div>
+  <div class="stat"><strong>01</strong><span>PRIVATE GARDEN</span></div>
+  <div class="stat"><strong>∞</strong><span>DESIGN DETAILS</span></div>
+ </div>
+</section>
+
+<section class="section" id="features">
+ <div class="sectionHead">
+  <div class="kicker">ARCHITECTURE</div>
+  <h2>Designed to be seen.</h2>
+  <p>
+   Every major element is designed to create depth, contrast and a premium modern
+   architectural appearance.
+  </p>
+ </div>
+
+ <div class="features">
+  <article class="card">
+   <div class="cardIcon">🏠</div>
+   <h3>Three-Level Residence</h3>
+   <p>Large multi-floor structure with balconies, high windows, strong roof geometry and modern proportions.</p>
+  </article>
+
+  <article class="card">
+   <div class="cardIcon">🪟</div>
+   <h3>Dark Reflective Glass</h3>
+   <p>Large dark glass surfaces create contrast against the bright architectural walls.</p>
+  </article>
+
+  <article class="card">
+   <div class="cardIcon">🌿</div>
+   <h3>Grand Garden</h3>
+   <p>A large landscaped outdoor area with lawn, trees, lighting and a dramatic entrance path.</p>
+  </article>
+
+  <article class="card">
+   <div class="cardIcon">🚪</div>
+   <h3>Luxury Entrance</h3>
+   <p>Dark wood entrance, black framing and golden lighting create a strong front elevation.</p>
+  </article>
+
+  <article class="card">
+   <div class="cardIcon">💡</div>
+   <h3>Night Lighting</h3>
+   <p>Hidden architectural lighting and yellow edge illumination emphasize the structure at night.</p>
+  </article>
+
+  <article class="card">
+   <div class="cardIcon">◇</div>
+   <h3>Interactive 3D</h3>
+   <p>Open the dedicated 3D page and inspect the exterior from different directions.</p>
+  </article>
+ </div>
+</section>
+
+<section class="section" id="gallery">
+ <div class="sectionHead">
+  <div class="kicker">EXTERIOR COLLECTION</div>
+  <h2>Look around the house.</h2>
+  <p>The visuals below represent the main exterior directions before entering the full interactive viewer.</p>
+ </div>
+
+ <div class="gallery">
+
+  <div class="view">
+   <div class="viewHouse">
+    <div class="viewWindow vw1"></div>
+    <div class="viewWindow vw2"></div>
+    <div class="viewWindow vw3"></div>
+    <div class="viewDoor"></div>
+   </div>
+   <div class="viewLabel">FRONT<small>MAIN ENTRANCE</small></div>
+  </div>
+
+  <div class="view">
+   <div class="viewHouse" style="transform:scaleX(.78) translateX(15px)">
+    <div class="viewWindow vw1"></div>
+    <div class="viewWindow vw2"></div>
+    <div class="viewWindow vw3"></div>
+   </div>
+   <div class="viewLabel">SIDE<small>GLASS + BALCONY</small></div>
+  </div>
+
+  <div class="view">
+   <div class="viewHouse" style="transform:scaleX(.9)">
+    <div class="viewWindow vw1"></div>
+    <div class="viewWindow vw2"></div>
+    <div class="viewWindow vw3"></div>
+   </div>
+   <div class="viewLabel">BACK<small>GARDEN VIEW</small></div>
+  </div>
+
+ </div>
+</section>
+
+<section class="cta">
+ <div class="kicker">THE MAIN EXPERIENCE</div>
+ <h2>ENTER THE 360° HOUSE</h2>
+ <p>
+  Open the dedicated 3D page, rotate the residence, inspect the exterior and
+  explore the architecture from every major direction.
+ </p>
+ <button class="btn" onclick="open3D()">OPEN 3D HOUSE →</button>
+</section>
+
+</main>
+
+<footer>
+ <div>© 2026 M POPAL DREAM HOUSE</div>
+ <div>MODERN • LUXURY • ARCHITECTURE</div>
+</footer>
+
+<div class="modal" id="settings">
+ <div class="modalBox">
+  <div class="modalTop">
+   <h2>SETTINGS</h2>
+   <button class="close" onclick="closeSettings()">×</button>
+  </div>
+
+  <div class="setting">
+   <div class="settingTitle">TEXT SIZE</div>
+   <div class="options">
+    <button onclick="setSize('small')">Small</button>
+    <button onclick="setSize('normal')">Normal</button>
+    <button onclick="setSize('large')">Large</button>
+   </div>
+  </div>
+
+  <div class="setting">
+   <div class="settingTitle">EDGE COLOR</div>
+   <div class="options">
+    <button onclick="setYellow()">Sharp Yellow</button>
+    <button onclick="setGold()">Gold</button>
+    <button onclick="setCyan()">Cyan</button>
+   </div>
+  </div>
+
+  <div class="setting">
+   <div class="settingTitle">ANIMATION</div>
+   <div class="options">
+    <button onclick="animation(true)">On</button>
+    <button onclick="animation(false)">Off</button>
+   </div>
+  </div>
+
+  <div class="setting">
+   <div class="settingTitle">3D HOUSE</div>
+   <div class="options">
+    <button onclick="open3D()">Launch 3D Viewer</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="modal" id="search">
+ <div class="modalBox">
+  <div class="modalTop">
+   <h2>HOUSE SEARCH</h2>
+   <button class="close" onclick="closeSearch()">×</button>
+  </div>
+
+  <div class="setting">
+   <input id="searchInput"
+    placeholder="Type: garden, 3D, architecture..."
+    style="width:100%;padding:15px;border-radius:12px;background:#050607;border:1px solid #3b444c;color:white;outline:none">
+  </div>
+
+  <button class="btn" style="margin-top:14px;width:100%" onclick="searchSite()">SEARCH</button>
+  <div id="searchResult" style="margin-top:15px;color:#9aa5ad;font-size:13px"></div>
+ </div>
+</div>
+
+<script>
+const menu=document.getElementById("menu");
+const settings=document.getElementById("settings");
+const search=document.getElementById("search");
+
+function openMenu(){menu.classList.add("open")}
+function closeMenu(){menu.classList.remove("open")}
+
+function go(id){
+ closeMenu();
+ setTimeout(()=>{
+  document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
+ },100);
+}
+
+function open3D(){
+ window.location.href="3d.html";
+}
+
+function openSettings(){
+ closeMenu();
+ settings.classList.add("show");
+}
+function closeSettings(){settings.classList.remove("show")}
+
+function openSearch(){
+ search.classList.add("show");
+ setTimeout(()=>document.getElementById("searchInput").focus(),200);
+}
+function closeSearch(){search.classList.remove("show")}
+
+function setSize(size){
+ document.body.style.fontSize=
+ size==="small"?"14px":size==="large"?"18px":"16px";
+}
+function setYellow(){
+ document.documentElement.style.setProperty("--yellow","#ffe600");
+}
+function setGold(){
+ document.documentElement.style.setProperty("--yellow","#ffb000");
+}
+function setCyan(){
+ document.documentElement.style.setProperty("--yellow","#00eaff");
+}
+function animation(on){
+ document.documentElement.style.setProperty("--animation",on?"1":"0");
+ document.querySelectorAll("*").forEach(e=>{
+  e.style.animationPlayState=on?"running":"paused";
+ });
+}
+function searchSite(){
+ const q=document.getElementById("searchInput").value.toLowerCase();
+ const result=document.getElementById("searchResult");
+ if(q.includes("3d")||q.includes("house")){
+  result.innerHTML="3D House found — opening viewer...";
+  setTimeout(open3D,700);
+ }else if(q.includes("garden")){
+  result.innerHTML="Grand Garden → scroll to the Architecture section.";
+  setTimeout(()=>{closeSearch();go("features")},900);
+ }else{
+  result.innerHTML="Try: <b>3D</b>, <b>house</b>, <b>garden</b>, or <b>architecture</b>.";
+ }
+}
+
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"){
+  closeMenu();
+  closeSettings();
+  closeSearch();
+ }
+});
+</script>
+
+</body>
+</html>
